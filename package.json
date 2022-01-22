@@ -7,7 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "clean:all": "npx react-native clean-project-auto",
+    "clean:android": "cd android && npx rimraf build && npx rimraf app/build && ./gradlew clean && cd ..",
+    "clean:ios": "npx rimraf ios/{build,Pods,Podfile.lock}",
+    "prepare:base": "watchman watch-del-all && npx rimraf node_modules && yarn install && npx react-native link",
+    "prepare:android": "yarn run prepare:base && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090",
+    "prepare:ios": "yarn run prepare:base && cd ios && pod install && cd ..",
+    "flush:android": "yarn run clean:android && yarn run prepare:android",
+    "flush:ios": "npx rimraf node_modules && yarn run clean:ios && yarn run prepare:ios"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.20",
