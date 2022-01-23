@@ -13,5 +13,8 @@ export function formatStock(stock: number): string {
 }
 
 export function formatCartNumber(quantity: number): string {
+  if (quantity === 0) {
+    return '';
+  }
   return quantity > 9 ? '9+' : String(quantity);
 }
