@@ -13,42 +13,96 @@ const commonStyle = css`
 const H1 = css`
   ${commonStyle}
 
+  font-size: 18px;
+  font-family: 'Montserrat-bold';
+`;
+const H2 = css`
+  ${commonStyle}
+
+  font-size: 18px;
+  font-family: 'Montserrat-SemiBold';
+`;
+const H3 = css`
+  ${commonStyle}
+
+  font-size: 18px;
+  font-family: 'Montserrat';
+`;
+
+const H4 = css`
+  ${commonStyle}
+
+  font-size: 16px;
+  font-family: 'Montserrat-bold';
+`;
+const H5 = css`
+  ${commonStyle}
+
   font-size: 16px;
   font-family: 'Montserrat-SemiBold';
 `;
-const H2 = css`
+const H6 = css`
+  ${commonStyle}
+
+  font-size: 16px;
+  font-family: 'Montserrat';
+`;
+
+const H7 = css`
   ${commonStyle}
 
   font-size: 14px;
   font-family: 'Montserrat-bold';
 `;
-const H3 = css`
+const H8 = css`
+  ${commonStyle}
+
+  font-size: 14px;
+  font-family: 'Montserrat-SemiBold';
+`;
+const H9 = css`
   ${commonStyle}
 
   font-size: 14px;
   font-family: 'Montserrat';
 `;
-const H4 = css`
+
+const H10 = css`
+  ${commonStyle}
+
+  font-size: 12px;
+  font-family: 'Montserrat-bold';
+`;
+const H11 = css`
+  ${commonStyle}
+
+  font-size: 12px;
+  font-family: 'Montserrat-SemiBold';
+`;
+const H12 = css`
   ${commonStyle}
 
   font-size: 12px;
   font-family: 'Montserrat';
 `;
 
-const H5 = css`
+const H13 = css`
+  ${commonStyle}
+
+  font-size: 10px;
+  font-family: 'Montserrat-bold';
+`;
+const H14 = css`
   ${commonStyle}
 
   font-size: 10px;
   font-family: 'Montserrat-SemiBold';
-  line-height: 12px;
 `;
-
-const H6 = css`
+const H15 = css`
   ${commonStyle}
 
   font-size: 10px;
   font-family: 'Montserrat';
-  line-height: 12px;
 `;
 
 export const Text = styled.Text<TextInterfaceProps>`
@@ -68,6 +122,24 @@ export const Text = styled.Text<TextInterfaceProps>`
         return H5;
       case 'H6':
         return H6;
+      case 'H7':
+        return H7;
+      case 'H8':
+        return H8;
+      case 'H9':
+        return H9;
+      case 'H10':
+        return H10;
+      case 'H11':
+        return H11;
+      case 'H12':
+        return H12;
+      case 'H13':
+        return H13;
+      case 'H14':
+        return H14;
+      case 'H15':
+        return H15;
     }
   }}
 `;
