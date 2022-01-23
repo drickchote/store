@@ -31,12 +31,7 @@ export default function ProductCardPresentational({
   const formattedStock = formatStock(stock);
   const stockText = `Disponível: ${formattedStock}`;
   const formattedPrice = toMoney(price);
-  if (stockText.length === 16) {
-    console.log({
-      'stock text': stockText,
-      'stockText.length': stockText.length,
-    });
-  }
+
   function renderIcon() {
     if (!isSelected) {
       return <View />;
