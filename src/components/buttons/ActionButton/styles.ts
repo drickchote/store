@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components/native';
-import {Heading} from '~/components';
+import {Heading} from '~/components/text';
 import {ButtonContainerInterface} from './types';
 
 export const Container = styled.View<ButtonContainerInterface>`
