@@ -8,6 +8,7 @@ export const metrics = {
 
 export const colors = {
   primary: '#4A5C9A',
+  secondary: '#EEE',
   disabledPrimary: '#4A5C9A7F',
   light: '#FFF',
   screenBackground: '#EEE',
