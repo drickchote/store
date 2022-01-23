@@ -16,3 +16,8 @@ export const colors = {
 };
 
 export const theme = {metrics: {...metrics}, colors: {...colors}};
+
+export interface ThemeInterface {
+  metrics: typeof metrics;
+  colors: typeof colors;
+}
