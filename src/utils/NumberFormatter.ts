@@ -11,3 +11,7 @@ export function toMoney(value: number): string {
 export function formatStock(stock: number): string {
   return stock > 999 ? '999+' : String(stock);
 }
+
+export function formatCartNumber(quantity: number): string {
+  return quantity > 9 ? '9+' : String(quantity);
+}
