@@ -12,3 +12,8 @@ export const Line = styled.View`
     `;
   }}
 `;
+
+export const SpacedRow = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
