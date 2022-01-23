@@ -3,7 +3,7 @@ import React from 'react';
 // Components
 import {Image, TouchableWithoutFeedback, View} from 'react-native';
 import {Heading} from '../text/';
-import {Line, SpacedRow} from '~/shared/';
+import {SpacedRow} from '~/shared/';
 
 // Styles
 import {
@@ -12,6 +12,7 @@ import {
   Information,
   PriceText,
   AvailableText,
+  CardLine,
 } from './styles';
 
 // Utils
@@ -56,7 +57,7 @@ export default function ProductCardPresentational({
             <PriceText type="H6">{formattedPrice}</PriceText>
           </Information>
         </Header>
-        <Line />
+        <CardLine />
         <SpacedRow>
           {renderIcon()}
           <AvailableText type="H12">{stockText}</AvailableText>

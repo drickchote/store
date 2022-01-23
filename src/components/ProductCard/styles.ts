@@ -1,6 +1,7 @@
 import styled, {css} from 'styled-components/native';
 import {Heading} from '../text';
 import {containerInterface} from './types';
+import {Line} from '~/shared';
 
 export const Container = styled.View<containerInterface>`
   ${props => {
@@ -48,6 +49,15 @@ export const AvailableText = styled(Heading)`
     return css`
       text-align: right;
       color: ${colors.monochromatic2};
+    `;
+  }}
+`;
+
+export const CardLine = styled(Line)`
+  ${props => {
+    const {metrics} = props.theme;
+    return css`
+      margin-vertical: ${metrics.doubleSpace}px;
     `;
   }}
 `;
