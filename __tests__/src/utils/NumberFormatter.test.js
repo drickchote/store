@@ -28,4 +28,8 @@ describe('formatCartNumber function', () => {
   it('should return 9+ when quantity > 9', () => {
     expect(formatCartNumber(10)).toBe('9+');
   });
+
+  it('should return empty string when quantity is 0', () => {
+    expect(formatCartNumber(0)).toBe('');
+  });
 });
