@@ -1,4 +1,4 @@
-import {formatStock, toMoney} from '~/utils/NumberFormatter';
+import {formatCartNumber, formatStock, toMoney} from '~/utils/NumberFormatter';
 
 describe('toMoney function', () => {
   test('50.99 should return R$ 50,99', () => {
@@ -17,5 +17,15 @@ describe('formatStock function', () => {
 
   it('should return 999+ when stock > 999', () => {
     expect(formatStock(1000)).toBe('999+');
+  });
+});
+
+describe('formatCartNumber function', () => {
+  it('should return same number when quantity <= 9', () => {
+    expect(formatCartNumber(9)).toBe('9');
+  });
+
+  it('should return 9+ when quantity > 9', () => {
+    expect(formatCartNumber(10)).toBe('9+');
   });
 });
