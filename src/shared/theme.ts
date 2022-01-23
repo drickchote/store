@@ -15,6 +15,7 @@ export const colors = {
   borderColor: '#EEE',
   monochromatic1: '#000',
   monochromatic2: '#4D5A60',
+  monochromatic3: '#5A4747',
 } as const;
 
 export const theme = {
