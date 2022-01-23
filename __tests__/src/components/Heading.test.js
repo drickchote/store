@@ -13,9 +13,18 @@ test('Render Heading properly', () => {
       <Heading type="H4">Hello</Heading>
       <Heading type="H5">Hello</Heading>
       <Heading type="H6">Hello</Heading>
+      <Heading type="H7">Hello</Heading>
+      <Heading type="H8">Hello</Heading>
+      <Heading type="H9">Hello</Heading>
+      <Heading type="H10">Hello</Heading>
+      <Heading type="H11">Hello</Heading>
+      <Heading type="H12">Hello</Heading>
+      <Heading type="H13">Hello</Heading>
+      <Heading type="H14">Hello</Heading>
+      <Heading type="H15">Hello</Heading>
     </ThemeProvider>,
   );
 
   const headings = getAllByText('Hello');
-  expect(headings.length).toEqual(6);
+  expect(headings.length).toEqual(15);
 });
