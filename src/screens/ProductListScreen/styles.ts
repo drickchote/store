@@ -10,8 +10,8 @@ export const CartContainer = styled.View`
 
     return css`
       align-items: flex-end;
-      margin: ${metrics.containerMargin}px;
-      margin-top: ${metrics.containerMargin * 2}px
+      margin-horizontal: ${metrics.containerMargin}px;
+      margin-bottom: ${metrics.containerMargin}px;
       padding-right: ${metrics.halfSpace}px;
     `;
   }}

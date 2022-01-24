@@ -1,10 +1,22 @@
+// Dependencies
 import React, {useEffect, useMemo, useState} from 'react';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+// hooks
 import {useCart} from '~/hooks';
+
+// Services
 import {remoteGet} from '~/services';
+
+// Presentational
 import ProductListScreenPresentational from './presentational';
+
+// Types
 import {ProductInterface} from './types';
 
 export function ProductListScreen() {
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [filterText, setFilterText] = useState<string>('');
   const {cartProductsQuantity, addProducts} = useCart();
@@ -16,6 +28,10 @@ export function ProductListScreen() {
   const selectedProducts = useMemo(() => {
     return products.filter(product => product.isSelected);
   }, [products]);
+
+  const isAddButtonDisabled = useMemo(() => {
+    return selectedProducts.length === 0;
+  }, [selectedProducts]);
 
   useEffect(() => {
     async function getProducts() {
@@ -42,6 +58,10 @@ export function ProductListScreen() {
     );
   }
 
+  function handlePressCart() {
+    navigation.navigate('CartScreen', {});
+  }
+
   function handleSelectProduct(id: string) {
     const selectedProduct = products.find(product => product.id === id);
     if (!selectedProduct) {
@@ -61,8 +81,10 @@ export function ProductListScreen() {
   return React.createElement(ProductListScreenPresentational, {
     products: filteredProducts,
     cartProductsQuantity,
+    isAddButtonDisabled,
     handleFilter,
     handleAddToCart,
     handleSelectProduct,
+    handlePressCart,
   });
 }

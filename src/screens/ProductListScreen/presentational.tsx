@@ -1,7 +1,13 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+
+// Components
+import {FlatList, TouchableOpacity} from 'react-native';
 import {ActionButton, Cart, ProductCard, SearchInput} from '~/components';
+
+// Stypes
 import {Screen, CartContainer} from './styles';
+
+// Types
 import {
   ProductInterface,
   ProductListScreenPresentationalInterface,
@@ -10,9 +16,11 @@ import {
 export default function ProductListScreenPresentational({
   products,
   cartProductsQuantity,
+  isAddButtonDisabled,
   handleFilter,
   handleAddToCart,
   handleSelectProduct,
+  handlePressCart,
 }: ProductListScreenPresentationalInterface) {
   function renderProduct({item}: {item: ProductInterface}) {
     const {id, name, stock, price, isSelected} = item;
@@ -33,7 +41,9 @@ export default function ProductListScreenPresentational({
   return (
     <Screen>
       <CartContainer>
-        <Cart quantity={cartProductsQuantity} />
+        <TouchableOpacity onPress={handlePressCart}>
+          <Cart quantity={cartProductsQuantity} />
+        </TouchableOpacity>
       </CartContainer>
       <SearchInput onChangeText={handleFilter} />
       <FlatList
@@ -42,7 +52,11 @@ export default function ProductListScreenPresentational({
         keyExtractor={item => item.id}
       />
 
-      <ActionButton name="Adicionar ao carrinho" onPress={handleAddToCart} />
+      <ActionButton
+        name="Adicionar ao carrinho"
+        onPress={handleAddToCart}
+        isDisabled={isAddButtonDisabled}
+      />
     </Screen>
   );
 }

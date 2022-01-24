@@ -11,7 +11,9 @@ export interface ProductInterface {
 export interface ProductListScreenPresentationalInterface {
   products: ProductInterface[];
   cartProductsQuantity: number;
+  isAddButtonDisabled: boolean;
   handleFilter(text: string): void;
   handleAddToCart(): void;
   handleSelectProduct(id: string): void;
+  handlePressCart(): void;
 }
