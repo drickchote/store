@@ -62,7 +62,28 @@ export function CartProvider({children}: CartProviderProps) {
     );
   }
 
-  function setProductQuantity(id: string, quantity: number) {}
+  function setProductQuantity(productId: string, quantity: number) {
+    const productInCart = cartProducts.find(
+      cartProduct => cartProduct.id === productId,
+    );
+
+    if (!productInCart) {
+      return;
+    }
+
+    const {stock} = productInCart;
+
+    productInCart.quantity = quantity > stock ? stock : Math.abs(quantity);
+    setCartProducts(currentCartProducts =>
+      currentCartProducts.map(product => {
+        if (product.id === productInCart.id) {
+          return productInCart;
+        }
+
+        return product;
+      }),
+    );
+  }
 
   function addProducts(products: ProductCartProps[]) {
     for (const product of products) {

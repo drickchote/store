@@ -16,5 +16,5 @@ export interface CartContextProps {
   removeProduct(productId: string): void;
   incrementQuantity(productId: string): void;
   decrementQuantity(productId: string): void;
-  setProductQuantity(id: string, quantity: number): void;
+  setProductQuantity(productId: string, quantity: number): void;
 }
