@@ -9,7 +9,7 @@ export default function ActionButtonPresentational({
   onPress,
 }: ActionButtonInterface) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} disabled={isDisabled}>
       <Container isDisabled={isDisabled} testID="actionButton">
         <Text type="H2">{name}</Text>
       </Container>
