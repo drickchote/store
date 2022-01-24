@@ -22,6 +22,7 @@ import {formatStock, toMoney} from '~/utils/NumberFormatter';
 import {ProductCardPropsInterface} from './types';
 
 export default function ProductCardPresentational({
+  id,
   name,
   stock,
   price,
@@ -42,7 +43,7 @@ export default function ProductCardPresentational({
     );
   }
   return (
-    <TouchableWithoutFeedback onPress={handlePress}>
+    <TouchableWithoutFeedback onPress={() => handlePress(id)}>
       <Container isSelected={isSelected} testID="productCard">
         <Header>
           <Image
