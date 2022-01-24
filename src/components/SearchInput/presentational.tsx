@@ -14,7 +14,7 @@ export default function SearchInputPresentational({
           onChangeText={onChangeText}
           placeholder="Pesquisar produtos..."
         />
-        <Image source={require('../../utils/icons/search.png')} />
+        <Image source={require('~/assets/icons/search.png')} />
       </SpacedRow>
     </Container>
   );

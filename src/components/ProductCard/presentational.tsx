@@ -39,7 +39,7 @@ export default function ProductCardPresentational({
       return <View />;
     }
     return (
-      <Image testID="check-icon" source={require('~/utils/icons/check.png')} />
+      <Image testID="check-icon" source={require('~/assets/icons/check.png')} />
     );
   }
   return (

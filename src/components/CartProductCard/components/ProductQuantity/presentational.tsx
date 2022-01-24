@@ -27,7 +27,7 @@ export default function ProductQuantityPresentational({
       return (
         <Image
           testID="disabledMinusIcon"
-          source={require('~/utils/icons/disabledMinus.png')}
+          source={require('~/assets/icons/disabledMinus.png')}
         />
       );
     }
@@ -36,7 +36,7 @@ export default function ProductQuantityPresentational({
         <ImageContainer>
           <Image
             testID="minusIcon"
-            source={require('~/utils/icons/minus.png')}
+            source={require('~/assets/icons/minus.png')}
           />
         </ImageContainer>
       </TouchableOpacity>
@@ -48,14 +48,17 @@ export default function ProductQuantityPresentational({
       return (
         <Image
           testID="disabledPlusIcon"
-          source={require('~/utils/icons/disabledPlus.png')}
+          source={require('~/assets/icons/disabledPlus.png')}
         />
       );
     }
     return (
       <TouchableOpacity onPress={onAdd}>
         <ImageContainer>
-          <Image testID="plusIcon" source={require('~/utils/icons/plus.png')} />
+          <Image
+            testID="plusIcon"
+            source={require('~/assets/icons/plus.png')}
+          />
         </ImageContainer>
       </TouchableOpacity>
     );

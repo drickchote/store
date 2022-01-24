@@ -13,7 +13,7 @@ export default function CartPresentaional({quantity = 0}: CartPropsInterface) {
         <CartText type="H15">{formattedQuantity}</CartText>
       </TextContainer>
       <ImageContainer>
-        <Image source={require('~/utils/icons/cart.png')} />
+        <Image source={require('~/assets/icons/cart.png')} />
       </ImageContainer>
     </View>
   );
