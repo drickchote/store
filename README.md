@@ -37,4 +37,29 @@ Protótipo Figma: https://www.figma.com/file/y1kDSKLkKhH9ExK6rPV75V/Design-Loja?
   - DADO Nome do produto
   - DADO Subtotal resultante do valor do produto x quantidade
 - Botão de “Finalizar”
+
   - REQ Manter o botão habilitado apenas caso a soma da quantidade de produtos no carrinho seja maior que 0
+
+  # Instalação
+
+```
+  git clone https://github.com/drickchote/store.git
+  cd store
+  yarn
+```
+
+- ios:
+
+```
+  yarn prepare:ios && yarn ios
+```
+
+- Android:
+
+```
+  yarn prepare:android && yarn android
+```
+
+```
+
+```
