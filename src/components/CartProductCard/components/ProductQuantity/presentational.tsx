@@ -15,6 +15,7 @@ import {
 import {ProductQuantityInterface} from './types';
 
 export default function ProductQuantityPresentational({
+  id,
   quantity,
   isAddDisabled = false,
   onAdd,
@@ -32,7 +33,7 @@ export default function ProductQuantityPresentational({
       );
     }
     return (
-      <TouchableOpacity onPress={onSubtract}>
+      <TouchableOpacity onPress={() => onSubtract(id)}>
         <ImageContainer>
           <Image
             testID="minusIcon"
@@ -53,7 +54,7 @@ export default function ProductQuantityPresentational({
       );
     }
     return (
-      <TouchableOpacity onPress={onAdd}>
+      <TouchableOpacity onPress={() => onAdd(id)}>
         <ImageContainer>
           <Image
             testID="plusIcon"

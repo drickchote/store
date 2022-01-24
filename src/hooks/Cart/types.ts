@@ -11,6 +11,9 @@ export interface CartProviderProps {
 export interface CartContextProps {
   cartProducts: ProductCartProps[];
   cartProductsQuantity: number;
+  cartTotalPrice: number;
   addProducts(products: ProductInterface[]): void;
   removeProduct(productId: string): void;
+  incrementQuantity(productId: string): void;
+  decrementQuantity(productId: string): void;
 }

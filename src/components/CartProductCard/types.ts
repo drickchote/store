@@ -1,10 +1,11 @@
 export interface CartProductCardPropsInterface {
+  id: string;
   name: string;
   stock: number;
   price: number;
   uri: string;
   quantity: number;
-  onAdd(): void;
-  onSubtract(): void;
-  onRemove(): void;
+  onAdd(id: string): void;
+  onSubtract(id: string): void;
+  onRemove(id: string): void;
 }

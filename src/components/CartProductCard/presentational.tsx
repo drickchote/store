@@ -23,6 +23,7 @@ import {toMoney} from '~/utils/NumberFormatter';
 import {CartProductCardPropsInterface} from './types';
 
 export default function CartProductCardPresentational({
+  id,
   name,
   stock,
   price,
@@ -52,10 +53,11 @@ export default function CartProductCardPresentational({
       </Header>
       <Line />
       <OptionsContainer>
-        <TouchableWithoutFeedback onPress={onRemove}>
+        <TouchableWithoutFeedback onPress={() => onRemove(id)}>
           <RemoveText type="H9">Remover</RemoveText>
         </TouchableWithoutFeedback>
         <ProductQuantity
+          id={id}
           quantity={quantity}
           isAddDisabled={isAddDisabled}
           onAdd={onAdd}

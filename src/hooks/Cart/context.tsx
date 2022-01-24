@@ -14,6 +14,54 @@ export function CartProvider({children}: CartProviderProps) {
     return cartProducts.reduce((acc, current) => acc + current.quantity, 0);
   }, [cartProducts]);
 
+  const cartTotalPrice = useMemo(() => {
+    return cartProducts.reduce(
+      (acc, current) => acc + Number(current.price) * current.quantity,
+      0,
+    );
+  }, [cartProducts]);
+
+  function incrementQuantity(productId: string) {
+    const productInCart = cartProducts.find(
+      cartProduct => cartProduct.id === productId,
+    );
+
+    if (!productInCart) {
+      return;
+    }
+    productInCart.quantity++;
+    setCartProducts(currentCartProducts =>
+      currentCartProducts.map(product => {
+        if (product.id === productInCart.id) {
+          return productInCart;
+        }
+
+        return product;
+      }),
+    );
+  }
+
+  function decrementQuantity(productId: string) {
+    const productInCart = cartProducts.find(
+      cartProduct => cartProduct.id === productId,
+    );
+
+    if (!productInCart) {
+      return;
+    }
+    const {quantity} = productInCart;
+    productInCart.quantity = quantity > 0 ? quantity - 1 : 0;
+    setCartProducts(currentCartProducts =>
+      currentCartProducts.map(product => {
+        if (product.id === productInCart.id) {
+          return productInCart;
+        }
+
+        return product;
+      }),
+    );
+  }
+
   function addProducts(products: ProductCartProps[]) {
     for (const product of products) {
       product.quantity = product.quantity || 1;
@@ -58,8 +106,11 @@ export function CartProvider({children}: CartProviderProps) {
       value={{
         cartProducts,
         cartProductsQuantity,
+        cartTotalPrice,
         addProducts,
         removeProduct,
+        incrementQuantity,
+        decrementQuantity,
       }}>
       {children}
     </CartContext.Provider>

@@ -1,6 +1,7 @@
 export interface ProductQuantityInterface {
+  id: string;
   quantity: number;
   isAddDisabled?: boolean;
-  onAdd(): void;
-  onSubtract(): void;
+  onAdd(id: string): void;
+  onSubtract(id: string): void;
 }
