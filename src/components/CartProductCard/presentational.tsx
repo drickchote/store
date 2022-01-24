@@ -22,6 +22,9 @@ import {toMoney} from '~/utils/NumberFormatter';
 // Types
 import {CartProductCardPropsInterface} from './types';
 
+// Hooks
+import {useCart} from '~/hooks';
+
 export default function CartProductCardPresentational({
   id,
   name,
@@ -29,13 +32,13 @@ export default function CartProductCardPresentational({
   price,
   uri,
   quantity,
-  onAdd,
-  onSubtract,
-  onRemove,
 }: CartProductCardPropsInterface) {
   const totalValue = quantity * price;
   const formattedTotal = toMoney(totalValue);
   const isAddDisabled = quantity >= stock;
+
+  const {removeProduct} = useCart();
+
   return (
     <Container testID="cartProductCard">
       <Header>
@@ -53,15 +56,13 @@ export default function CartProductCardPresentational({
       </Header>
       <Line />
       <OptionsContainer>
-        <TouchableWithoutFeedback onPress={() => onRemove(id)}>
+        <TouchableWithoutFeedback onPress={() => removeProduct(id)}>
           <RemoveText type="H9">Remover</RemoveText>
         </TouchableWithoutFeedback>
         <ProductQuantity
           id={id}
           quantity={quantity}
           isAddDisabled={isAddDisabled}
-          onAdd={onAdd}
-          onSubtract={onSubtract}
         />
       </OptionsContainer>
     </Container>

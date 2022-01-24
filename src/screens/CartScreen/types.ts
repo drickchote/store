@@ -13,7 +13,4 @@ export interface ProductInterface {
 export interface CartScreenPresentationalInterface {
   products: ProductCartProps[];
   cartTotalPrice: number;
-  handleAdd(id: string): void;
-  handleSubtract(id: string): void;
-  handleRemove(id: string): void;
 }

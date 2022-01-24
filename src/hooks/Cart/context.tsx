@@ -62,6 +62,8 @@ export function CartProvider({children}: CartProviderProps) {
     );
   }
 
+  function setProductQuantity(id: string, quantity: number) {}
+
   function addProducts(products: ProductCartProps[]) {
     for (const product of products) {
       product.quantity = product.quantity || 1;
@@ -107,6 +109,7 @@ export function CartProvider({children}: CartProviderProps) {
         cartProducts,
         cartProductsQuantity,
         cartTotalPrice,
+        setProductQuantity,
         addProducts,
         removeProduct,
         incrementQuantity,

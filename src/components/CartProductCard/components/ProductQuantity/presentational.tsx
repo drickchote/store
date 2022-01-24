@@ -3,6 +3,9 @@ import React from 'react';
 // Components
 import {Image, TouchableOpacity} from 'react-native';
 
+// Hooks
+import {useCart} from '~/hooks';
+
 // Styles
 import {
   Container,
@@ -18,10 +21,10 @@ export default function ProductQuantityPresentational({
   id,
   quantity,
   isAddDisabled = false,
-  onAdd,
-  onSubtract,
 }: ProductQuantityInterface) {
   const isMinusDisabled = quantity === 0;
+
+  const {incrementQuantity, decrementQuantity, setProductQuantity} = useCart();
 
   function renderMinus() {
     if (isMinusDisabled) {
@@ -33,7 +36,7 @@ export default function ProductQuantityPresentational({
       );
     }
     return (
-      <TouchableOpacity onPress={() => onSubtract(id)}>
+      <TouchableOpacity onPress={() => decrementQuantity(id)}>
         <ImageContainer>
           <Image
             testID="minusIcon"
@@ -54,7 +57,7 @@ export default function ProductQuantityPresentational({
       );
     }
     return (
-      <TouchableOpacity onPress={() => onAdd(id)}>
+      <TouchableOpacity onPress={() => incrementQuantity(id)}>
         <ImageContainer>
           <Image
             testID="plusIcon"
@@ -69,7 +72,11 @@ export default function ProductQuantityPresentational({
     <Container>
       {renderMinus()}
       <QuantityContainer>
-        <TextInput keyboardType="number-pad" value={String(quantity)} />
+        <TextInput
+          keyboardType="number-pad"
+          value={String(quantity)}
+          onChangeText={value => setProductQuantity(id, Number(value))}
+        />
       </QuantityContainer>
       {renderPlus()}
     </Container>

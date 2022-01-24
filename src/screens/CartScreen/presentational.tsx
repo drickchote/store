@@ -20,9 +20,6 @@ import {EmptyCartScreen} from '..';
 export default function CartScreenScreenPresentational({
   products,
   cartTotalPrice,
-  handleAdd,
-  handleSubtract,
-  handleRemove,
 }: CartScreenPresentationalInterface) {
   if (products.length === 0) {
     return <EmptyCartScreen />;
@@ -42,9 +39,6 @@ export default function CartScreenScreenPresentational({
         price={productPrice}
         stock={stock}
         uri={uri}
-        onAdd={handleAdd}
-        onSubtract={handleSubtract}
-        onRemove={handleRemove}
         quantity={quantity}
       />
     );
