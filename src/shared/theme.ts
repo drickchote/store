@@ -17,6 +17,7 @@ export const colors = {
   monochromatic1: '#000',
   monochromatic2: '#4D5A60',
   monochromatic3: '#5A4747',
+  monochromatic4: '#DDE0EE',
 } as const;
 
 export const theme = {
