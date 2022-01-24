@@ -8,7 +8,7 @@ export const Container = styled.View<ButtonContainerInterface>`
     const {colors, metrics} = theme;
     return css`
       background-color: ${isDisabled ? colors.disabledPrimary : colors.primary};
-      padding-vertical: ${metrics.doubleSpace}px;
+      padding-vertical: ${metrics.space * 3}px;
       border-radius: ${metrics.space}px;
     `;
   }}
