@@ -1,24 +1,20 @@
 import React from 'react';
+import '@testing-library/jest-native';
 import {render} from '~/utils/test-utils';
-import {toHaveStyle, toContainElement} from '@testing-library/jest-native';
 import {toMoney} from '~/utils/NumberFormatter';
 import {CartProductCard} from '~/components';
 
 describe('CartProductCard', () => {
-  expect.extend({toHaveStyle, toContainElement});
-
   describe('Render properly', () => {
     it('render with no errors', () => {
       const {getByTestId} = render(
         <CartProductCard
+          id="1"
           name="Rustic Metal Fish"
           price={50}
           stock={10}
           quantity={10}
           uri="https://picsum.photos/640/480/"
-          onAdd={() => {}}
-          onSubtract={() => {}}
-          onRemove={() => {}}
         />,
       );
       const cartProductCard = getByTestId('cartProductCard');
@@ -32,14 +28,12 @@ describe('CartProductCard', () => {
       const formattedTotal = toMoney(total);
       const {getByText} = render(
         <CartProductCard
+          id="1"
           name="Rustic Metal Fish"
           price={price}
           stock={10}
           quantity={quantity}
           uri="https://picsum.photos/640/480/"
-          onAdd={() => {}}
-          onSubtract={() => {}}
-          onRemove={() => {}}
         />,
       );
       const priceHeadind = getByText(formattedTotal);
@@ -51,14 +45,12 @@ describe('CartProductCard', () => {
       const quantity = 0;
       const {queryByTestId} = render(
         <CartProductCard
+          id="1"
           name="Rustic Metal Fish"
           price={price}
           stock={10}
           quantity={quantity}
           uri="https://picsum.photos/640/480/"
-          onAdd={() => {}}
-          onSubtract={() => {}}
-          onRemove={() => {}}
         />,
       );
       const disabledMinusIcon = queryByTestId('disabledMinusIcon');
@@ -74,14 +66,12 @@ describe('CartProductCard', () => {
       const stock = 5;
       const {queryByTestId} = render(
         <CartProductCard
+          id="1"
           name="Rustic Metal Fish"
           price={price}
           stock={stock}
           quantity={quantity}
           uri="https://picsum.photos/640/480/"
-          onAdd={() => {}}
-          onSubtract={() => {}}
-          onRemove={() => {}}
         />,
       );
       const disabledPlusIcon = queryByTestId('disabledPlusIcon');

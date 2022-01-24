@@ -1,12 +1,11 @@
 import React from 'react';
+import '@testing-library/jest-native';
 import {Cart} from '~/components';
 import {formatCartNumber} from '~/utils/NumberFormatter';
 import {render} from '~/utils/test-utils';
-import {toHaveStyle} from '@testing-library/jest-native';
 import {colors} from '~/shared';
 
 describe('Render CartIcon properly', () => {
-  expect.extend({toHaveStyle});
   it('should render without errors', () => {
     const {getByText} = render(<Cart quantity={5} />);
     const cart = getByText('5');

@@ -1,16 +1,15 @@
 import React from 'react';
+import '@testing-library/jest-native';
 import {ProductCard} from '~/components/ProductCard';
 import {render} from '~/utils/test-utils';
-import {toHaveStyle, toContainElement} from '@testing-library/jest-native';
 import {formatStock, toMoney} from '~/utils/NumberFormatter';
 
 describe('ProductCard', () => {
-  expect.extend({toHaveStyle, toContainElement});
-
   describe('Render properly', () => {
     it('render with no errors', () => {
       const {getByTestId} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={false}
           price={50}
@@ -28,6 +27,7 @@ describe('ProductCard', () => {
       const formattedPrice = toMoney(price);
       const {getByText} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={false}
           price={price}
@@ -45,6 +45,7 @@ describe('ProductCard', () => {
       const formattedStock = formatStock(stock);
       const {getByText} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={false}
           price={50}
@@ -63,6 +64,7 @@ describe('ProductCard', () => {
     it('should not show icon when not selected', () => {
       const {queryByTestId} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={false}
           price={50}
@@ -78,6 +80,7 @@ describe('ProductCard', () => {
     it('should show icon when selected', () => {
       const {getByTestId} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={true}
           price={50}
@@ -95,6 +98,7 @@ describe('ProductCard', () => {
     it('should show border when selected', () => {
       const {getByTestId} = render(
         <ProductCard
+          id="1"
           name="Rustic Metal Fish"
           isSelected={true}
           price={50}

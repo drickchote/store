@@ -13,7 +13,7 @@ const AllTheProviders = ({children}: providersProps) => {
 
 const customRender = (
   ui: ReactElement<any, string | JSXElementConstructor<any>>,
-  options: RenderOptions,
+  options?: RenderOptions,
 ) => render(ui, {wrapper: AllTheProviders, ...options});
 
 export * from '@testing-library/react-native';
